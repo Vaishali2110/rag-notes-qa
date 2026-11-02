@@ -1,0 +1,19 @@
+RAG (Retrieval-Augmented Generation) is a technique that combines information retrieval with text generation. Instead of relying only on what a language model learned during training, RAG retrieves relevant documents from an external knowledge source and uses them as context before generating an answer. This reduces hallucination and allows the model to answer using up-to-date or private data.
+
+The RAG pipeline has three main steps. First, indexing: documents are split into smaller chunks, each chunk is converted into a numeric vector using an embedding model, and these vectors are stored in a vector database. Second, retrieval: when a user asks a question, the question is also converted into an embedding, and the vector database is searched for the most similar chunks using cosine similarity. Third, generation: the retrieved chunks are combined with the original question into a single prompt, which is passed to a language model to produce the final answer.
+
+Embeddings are numeric representations of text that capture meaning. Texts with similar meaning have embeddings that are close together in vector space, even if they use completely different words. This is measured using cosine similarity, which calculates the angle between two vectors. A smaller angle means higher similarity.
+
+Vector databases such as Chroma, Pinecone, and FAISS are optimized for fast similarity search across large numbers of embeddings, unlike traditional databases which are optimized for exact matches.
+
+Common tools used to build RAG systems include LangChain and LlamaIndex, which connect chunking, embedding, retrieval, and generation into a single pipeline.
+
+Waste Management AI Annotation Overview:
+
+In waste management AI systems, computer vision models are trained to identify and classify different types of waste materials from images captured on conveyor belts, bins, or sorting facilities. Common categories include plastic, paper, metal, glass, organic waste, and e-waste.
+
+Annotation for waste management datasets typically involves drawing bounding boxes or segmentation masks around individual waste items in images, then labeling each item with its correct material category. Quality assurance in this process is critical because misclassified items can lead to contamination in recycling streams, reducing the efficiency and value of recycled materials.
+
+Annotators must also handle edge cases such as overlapping items, partially visible objects, dirty or damaged materials that are hard to classify, and mixed-material items like a plastic bottle with a paper label. Consistent labeling guidelines and inter-annotator agreement checks are used to maintain high data quality, which directly affects how well the downstream AI model performs in real sorting facilities.
+
+High-quality annotated data is essential for waste sorting robots and AI-powered recycling systems to work accurately, reduce contamination rates, and improve overall recycling efficiency.
